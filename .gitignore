@@ -1,0 +1,30 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# mypy cache
+.mypy_cache/
+
+# Claude Code
+.claude/
+
+# Training runs & models (large files)
+runs/
+*.zip
+
+# TensorBoard
+tensorboard/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
