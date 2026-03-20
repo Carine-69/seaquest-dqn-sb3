@@ -1,0 +1,78 @@
+
+================================================================================
+  train_extended.py — Results
+  Started : 2026-03-18 19:10:57
+  Device  : CUDA — NVIDIA GeForce RTX 4070 Laptop GPU
+  Game    : ALE/Seaquest-v5
+================================================================================
+Exp    | Name                           |        Steps |  Best Reward | Device | Time
+--------------------------------------------------------------------------------
+Exp 01 | exp1_baseline_low              | steps=1,000,000 | best_reward=    16.0 | device=cuda | time=0:34:48
+Exp 02 | exp2_lr_bump                   | steps=1,000,000 | best_reward=    19.8 | device=cuda | time=0:34:39
+Exp 03 | exp3_bigger_batch              | steps=1,000,000 | best_reward=    25.6 | device=cuda | time=0:36:08
+Exp 04 | exp4_lower_eps_start           | steps=1,000,000 | best_reward=    17.8 | device=cuda | time=0:34:52
+
+================================================================================
+  train_extended.py — Results
+  Started : 2026-03-18 23:23:39
+  Device  : CUDA — NVIDIA GeForce RTX 4070 Laptop GPU
+  Game    : ALE/Seaquest-v5
+================================================================================
+Exp    | Name                           |        Steps |  Best Reward | Device | Time
+--------------------------------------------------------------------------------
+
+================================================================================
+  train_extended.py — Results
+  Started : 2026-03-18 23:32:17
+  Device  : CUDA — NVIDIA GeForce RTX 4070 Laptop GPU
+  Game    : ALE/Seaquest-v5
+================================================================================
+Exp    | Name                           |        Steps |  Best Reward | Device | Time
+--------------------------------------------------------------------------------
+
+================================================================================
+  train_extended.py — Results
+  Started : 2026-03-18 23:34:54
+  Device  : CUDA — NVIDIA GeForce RTX 4070 Laptop GPU
+  Game    : ALE/Seaquest-v5
+================================================================================
+Exp    | Name                           |        Steps |  Best Reward | Device | Time
+--------------------------------------------------------------------------------
+
+================================================================================
+  train_extended.py — Results
+  Started : 2026-03-18 23:36:10
+  Device  : CUDA — NVIDIA GeForce RTX 4070 Laptop GPU
+  Game    : ALE/Seaquest-v5
+================================================================================
+Exp    | Name                           |        Steps |  Best Reward | Device | Time
+--------------------------------------------------------------------------------
+Exp 01 | exp1_baseline_low              | steps=1,000,000 | best_reward=    19.2 | device=cuda | time=0:33:58
+Exp 02 | exp2_lr_bump                   | steps=1,000,000 | best_reward=    17.2 | device=cuda | time=0:34:05
+Exp 03 | exp3_bigger_batch              | steps=1,000,000 | best_reward=    19.8 | device=cuda | time=0:35:16
+Exp 04 | exp4_lower_eps_start           | steps=1,000,000 | best_reward=    15.8 | device=cuda | time=0:34:16
+Exp 05 | exp5_lower_eps_end             | steps=10,000,000 | best_reward=    94.4 | device=cuda | time=5:49:44
+Exp 06 | exp6_faster_decay              | steps=10,000,000 | best_reward=    40.0 | device=cuda | time=5:39:07
+Exp 07 | exp7_slower_decay              | steps=10,000,000 | best_reward=    73.6 | device=cuda | time=6:05:33
+Exp 08 | exp8_mixed_low                 | steps=10,000,000 | best_reward=    75.6 | device=cuda | time=5:42:49
+Exp 09 | exp9_moderate_decay            | steps=10,000,000 | best_reward=    75.4 | device=cuda | time=5:43:07
+Exp 10 | exp10_best_of_low              | steps=10,000,000 | best_reward=   105.0 | device=cuda | time=5:55:33
+
+================================================================================
+  SUMMARY
+================================================================================
+  Exp 01: best_reward=19.2  model=runs/exp1_baseline_low_extended/dqn_model.zip
+  Exp 02: best_reward=17.2  model=runs/exp2_lr_bump_extended/dqn_model.zip
+  Exp 03: best_reward=19.8  model=runs/exp3_bigger_batch_extended/dqn_model.zip
+  Exp 04: best_reward=15.8  model=runs/exp4_lower_eps_start_extended/dqn_model.zip
+  Exp 05: best_reward=94.4  model=runs/exp5_lower_eps_end_extended/dqn_model.zip
+  Exp 06: best_reward=40.0  model=runs/exp6_faster_decay_extended/dqn_model.zip
+  Exp 07: best_reward=73.6  model=runs/exp7_slower_decay_extended/dqn_model.zip
+  Exp 08: best_reward=75.6  model=runs/exp8_mixed_low_extended/dqn_model.zip
+  Exp 09: best_reward=75.4  model=runs/exp9_moderate_decay_extended/dqn_model.zip
+  Exp 10: best_reward=105.0  model=runs/exp10_best_of_low_extended/dqn_model.zip
+
+  Results saved to: results_extended.txt
+  TensorBoard    : tensorboard --logdir runs/
+================================================================================
+
