@@ -1,0 +1,11 @@
+exp,name,lr,gamma,batch,eps_start,eps_end,eps_frac,best_reward,final_reward,notes
+1,exp1_baseline_mid,0.0001,0.94,64,1.0,0.05,0.1,18.8,15.6,Baseline mid — good balance
+2,exp2_lr_bump,0.0002,0.94,64,1.0,0.05,0.1,15.4,15.4,Slight lr bump — faster policy updates
+3,exp3_higher_gamma,0.0001,0.95,64,1.0,0.05,0.1,18.6,18.6,Higher gamma — values future rewards more
+4,exp4_lower_eps_start,0.0003,0.94,64,0.9,0.05,0.1,8.0,8.0,Lower eps_start — less initial randomness
+5,exp5_lower_eps_end,0.0001,0.96,64,1.0,0.02,0.1,13.0,13.0,Lower eps_end — more greedy late stage
+6,exp6_faster_decay,0.0002,0.95,64,1.0,0.05,0.05,16.8,16.8,Faster decay — earlier shift to exploit
+7,exp7_slower_decay,0.0001,0.94,64,1.0,0.05,0.25,13.8,11.8,Slower decay — prolonged exploration
+8,exp8_mixed_mid,0.0004,0.95,64,0.9,0.02,0.1,9.2,9.2,Mixed mid — combined moderate changes
+9,exp9_moderate_decay_high_gamma,0.0003,0.96,64,1.0,0.05,0.15,20.0,14.0,Moderate decay with higher gamma
+10,exp10_best_of_mid,0.0005,0.95,64,0.9,0.02,0.2,6.0,5.8,Best-of-mid — final mid-range candidate ★ FULL 1M STEPS

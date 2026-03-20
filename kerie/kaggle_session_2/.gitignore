@@ -1,0 +1,6 @@
+# Ignore model files (too large for git)
+*/dqn_model.zip
+*/eval/
+*/tensorboard/
+*/results.csv
+*/reward_plot.png
