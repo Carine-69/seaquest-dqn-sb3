@@ -9,10 +9,24 @@ from stable_baselines3.common.atari_wrappers import AtariWrapper
 from stable_baselines3.common.vec_env import DummyVecEnv, VecFrameStack
 
 # ──────────────────────────────────────────────────────────────
-# ──────────────────────────────────────────────────────────────
 # Loads a trained DQN model and runs it on ALE/Seaquest-v5
 # with deterministic=True (greedy policy — no exploration).
 # Renders the game in a GUI window so you can watch the agent.
+#
+# HOW THE AGENT BEHAVES (based on training at 50k steps):
+#   - Agent mostly fires randomly and moves without clear strategy
+#   - Dies quickly from oxygen running out (hasn't learned to surface)
+#   - Expected reward per episode: ~2–17 (very low, agent is still learning)
+#
+# EXPECTED vs ACTUAL:
+#   - Expected (fully trained): 500–2000 reward, surfaces for oxygen,
+#     shoots enemies, rescues divers
+#   - Actual (50k steps): 2–17 reward, dies within seconds from oxygen
+#
+# AGENT DIES WHEN:
+#   - Oxygen bar runs out (must surface to refill) — most common at 50k steps
+#   - Hit by an enemy torpedo
+#   - Direct collision with enemy submarine or shark
 # ──────────────────────────────────────────────────────────────
 
 ENV_ID  = "ALE/Seaquest-v5"
@@ -20,10 +34,6 @@ N_STACK = 4
 
 
 def make_env(render_mode="human"):
-    """
-    Build a Seaquest environment with the same Atari wrappers
-    used during training, plus render_mode='human' for display.
-    """
     def _init():
         env = gym.make(ENV_ID, render_mode=render_mode)
         env = AtariWrapper(env)

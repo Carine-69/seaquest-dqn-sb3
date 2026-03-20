@@ -1,0 +1,9 @@
+experiment,steps,best_reward,final_reward
+exp1_baseline_mid,200k (Kaggle GPU),18.8,15.6
+exp2_lr_bump,200k (Kaggle GPU),15.4,15.4
+exp3_higher_gamma,200k (Kaggle GPU),18.6,18.6
+exp4_lower_eps_start,200k (Kaggle GPU),8.0,8.0
+exp5_lower_eps_end,200k (Kaggle GPU),13.0,13.0
+exp6_faster_decay,200k (Kaggle GPU),16.8,16.8
+exp7_slower_decay,200k (Kaggle GPU),13.8,11.8
+exp8_mixed_mid,200k (Kaggle GPU),9.2,9.2

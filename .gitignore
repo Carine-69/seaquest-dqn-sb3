@@ -14,9 +14,11 @@ __pycache__/
 # Claude Code
 .claude/
 
-# Training runs — large files, not needed (plots/CSVs copied to kerie/plots/)
+# Training runs — exclude local runs and kaggle tensorboard/eval (too large)
 kerie/runs/
 runs/
+kerie/runs_kaggle/*/tensorboard/
+kerie/runs_kaggle/*/eval/
 
 # OS files
 .DS_Store
