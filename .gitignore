@@ -14,12 +14,9 @@ __pycache__/
 # Claude Code
 .claude/
 
-# Training runs & models (large files)
+# Training runs — large files, not needed (plots/CSVs copied to kerie/plots/)
+kerie/runs/
 runs/
-*.zip
-
-# TensorBoard
-tensorboard/
 
 # OS files
 .DS_Store

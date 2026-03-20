@@ -1,6 +1,9 @@
 import argparse
+import csv
 import os
 
+import numpy as np
+import matplotlib.pyplot as plt
 import gymnasium as gym
 import ale_py
 from stable_baselines3 import DQN
@@ -9,7 +12,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv, VecFrameStack
 from stable_baselines3.common.callbacks import EvalCallback, StopTrainingOnNoModelImprovement
 
 # ──────────────────────────────────────────────────────────────
-Mid-Range Hyperparameter Experiments (CnnPolicy)
+#Mid-Range Hyperparameter Experiments (CnnPolicy)
 # ──────────────────────────────────────────────────────────────
 #
 # Why CnnPolicy?
@@ -101,11 +104,14 @@ EXPERIMENTS = {
 }
 
 ENV_ID          = "ALE/Seaquest-v5"
-TOTAL_TIMESTEPS = 1_000_000
-BUFFER_SIZE     = 100_000
+TOTAL_TIMESTEPS = 200_000
+BUFFER_SIZE     = 30_000   # reduced from 100k to fit in RAM (~800 MB)
 LEARNING_STARTS = 10_000
 TARGET_UPDATE   = 1_000
 N_STACK         = 4
+
+# All output saved inside kerie/ folder
+KERIE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def make_env(render_mode=None):
@@ -135,7 +141,14 @@ def run_experiment(exp_id: int, total_timesteps: int = TOTAL_TIMESTEPS):
           f"eps_frac={cfg['exploration_fraction']}")
     print(f"{'='*60}")
 
-    run_dir  = os.path.join("runs", cfg["name"])
+    run_dir  = os.path.join(KERIE_DIR, "runs", cfg["name"])
+
+    # Skip if this experiment already completed (model exists)
+    done_path = os.path.join(run_dir, "dqn_model.zip")
+    if os.path.isfile(done_path):
+        print(f"  SKIPPED — already completed ({done_path})")
+        return done_path
+
     log_dir  = os.path.join(run_dir, "tensorboard")
     eval_dir = os.path.join(run_dir, "eval")
     os.makedirs(run_dir,  exist_ok=True)
@@ -172,7 +185,7 @@ def run_experiment(exp_id: int, total_timesteps: int = TOTAL_TIMESTEPS):
         eval_env,
         best_model_save_path = eval_dir,
         log_path             = eval_dir,
-        eval_freq            = 50_000,
+        eval_freq            = 25_000,
         n_eval_episodes      = 5,
         deterministic        = True,
         render               = False,
@@ -192,6 +205,41 @@ def run_experiment(exp_id: int, total_timesteps: int = TOTAL_TIMESTEPS):
 
     train_env.close()
     eval_env.close()
+
+    # ── Save results plot and CSV ──
+    eval_npz = os.path.join(eval_dir, "evaluations.npz")
+    if os.path.isfile(eval_npz):
+        data = np.load(eval_npz)
+        timesteps = data["timesteps"]
+        mean_rewards = data["results"].mean(axis=1)
+        std_rewards = data["results"].std(axis=1)
+
+        # Save reward plot
+        plt.figure(figsize=(10, 5))
+        plt.plot(timesteps, mean_rewards, label="Mean Reward")
+        plt.fill_between(timesteps, mean_rewards - std_rewards,
+                         mean_rewards + std_rewards, alpha=0.3, label="Std Dev")
+        plt.xlabel("Timesteps")
+        plt.ylabel("Eval Reward")
+        plt.title(f"Exp {exp_id:02d}: {cfg['name']}\n"
+                  f"lr={cfg['learning_rate']} gamma={cfg['gamma']} "
+                  f"batch={cfg['batch_size']} eps_frac={cfg['exploration_fraction']}")
+        plt.legend()
+        plt.grid(True)
+        plt.tight_layout()
+        plot_path = os.path.join(run_dir, "reward_plot.png")
+        plt.savefig(plot_path)
+        plt.close()
+        print(f"  Plot saved   ->  {plot_path}")
+
+        # Save CSV with eval results
+        csv_path = os.path.join(run_dir, "results.csv")
+        with open(csv_path, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["timestep", "mean_reward", "std_reward"])
+            for t, m, s in zip(timesteps, mean_rewards, std_rewards):
+                writer.writerow([int(t), f"{m:.2f}", f"{s:.2f}"])
+        print(f"  CSV saved    ->  {csv_path}")
 
     return model_path + ".zip"
 

@@ -1,0 +1,11 @@
+experiment,best_reward,best_at_timestep,final_reward,final_std
+exp10_best_of_mid,5.00,50000,5.00,3.03
+exp1_baseline_mid,7.40,50000,7.40,2.80
+exp2_lr_bump,5.20,50000,5.20,4.62
+exp3_higher_gamma,4.20,25000,3.60,3.72
+exp4_lower_eps_start,9.60,50000,9.60,5.54
+exp5_lower_eps_end,4.20,25000,2.80,1.47
+exp6_faster_decay,2.40,25000,2.20,0.98
+exp7_slower_decay,3.80,50000,3.80,2.32
+exp8_mixed_mid,4.20,50000,4.20,2.32
+exp9_moderate_decay_high_gamma,6.40,50000,6.40,3.20
