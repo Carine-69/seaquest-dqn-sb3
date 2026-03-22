@@ -30,6 +30,7 @@ seaquest-dqn-sb3/
 │   ├── train.py
 │   ├── train_extended.py
 │   ├── cnn_experiments.md
+│   ├── watch.py                        # Record gameplay video / evaluate model
 │   ├── best_model_gameplay.mp4
 │   └── results/
 │
@@ -62,6 +63,12 @@ python play.py
 
 # Evaluate headless
 python play.py --model dqn_model.zip --episodes 10 --no_render
+
+# Record gameplay video (saves as .mp4)
+python "Carine Umugabekazi/watch.py" --model path/to/dqn_model.zip --episodes 5
+
+# Evaluate only (no video, just scores)
+python "Carine Umugabekazi/watch.py" --model path/to/dqn_model.zip --episodes 20 --eval
 ```
 
 ## Group Task Division
