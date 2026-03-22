@@ -2,6 +2,14 @@
 
 Deep Q-Network agent trained on **ALE/Seaquest-v5** using [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3) and [Gymnasium](https://gymnasium.farama.org/).
 
+## Agent Gameplay
+
+<video src="Carine Umugabekazi/best_model_gameplay.mp4" controls width="480"></video>
+
+[Watch gameplay video](Carine%20Umugabekazi/best_model_gameplay.mp4)
+
+> Trained DQN agent playing ALE/Seaquest-v5 using greedy Q-policy (deterministic=True).
+
 ## Environment
 
 | Property | Value |
