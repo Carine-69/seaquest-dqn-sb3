@@ -14,24 +14,10 @@ __pycache__/
 # Claude Code
 .claude/
 
-# Training runs (raw outputs — too large for git)
+# Training runs (raw outputs)
 kerie/runs/
 kerie/runs_kaggle/
 runs/
-
-# Old session folders with raw model/eval data
-kerie/kaggle_session_2/*/dqn_model.zip
-kerie/kaggle_session_2/*/eval/
-kerie/kaggle_session_2/*/tensorboard/
-
-# Individual experiment result folders (1M runs)
-kerie/exp*/dqn_model.zip
-kerie/exp*/eval/
-kerie/exp*/tensorboard/
-
-# Model zip files (except best model for submission)
-kerie/**/*.zip
-!kerie/final_trainings/best_model/*.zip
 
 # Tensorboard logs
 **/tensorboard/
