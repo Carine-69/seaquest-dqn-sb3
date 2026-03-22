@@ -11,19 +11,20 @@ __pycache__/
 # mypy cache
 .mypy_cache/
 
-# Claude Code
-.claude/
-
-# Training runs (raw outputs)
-kerie/runs/
-kerie/runs_kaggle/
-runs/
-
 # Tensorboard logs
 **/tensorboard/
+**/tb_logs/
 
-# Eval checkpoints and npz files
+# Eval checkpoints
 **/evaluations.npz
+
+# Training run outputs (large model files in member subfolders)
+Carine Umugabekazi/runs/
+Kerie Izere/runs/
+Kerie Izere/runs_kaggle/
+
+# Experiment results (local only)
+experiment_results/
 
 # OS files
 .DS_Store
