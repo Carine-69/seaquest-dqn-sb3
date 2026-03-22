@@ -112,3 +112,5 @@ Based on the baseline results in the hyperparameter table above, experiments 5â€
 - `mean_reward = 53.24`
 - `final_reward = 61.40`
 - `total_timesteps = 10,000,000`
+
+To see the best model trained used to play the game, run file watch.py, after you have cloned the repo locally for you.
