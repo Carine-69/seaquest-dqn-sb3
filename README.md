@@ -6,9 +6,15 @@ Deep Q-Network agent trained on **ALE/Seaquest-v5** using [Stable Baselines 3](h
 
 <video src="Carine Umugabekazi/best_model_gameplay.mp4" controls width="480"></video>
 
-[Watch gameplay video](Carine%20Umugabekazi/best_model_gameplay.mp4)
+Watch gameplay video
 
-> Trained DQN agent playing ALE/Seaquest-v5 using greedy Q-policy (deterministic=True).
+https://github.com/user-attachments/assets/07fb1fbf-4f4d-40e6-acae-a2de0df1ea00
+
+
+> Trained DQN agent playing
+
+
+ ALE/Seaquest-v5 using greedy Q-policy (deterministic=True).
 
 ## Environment
 
